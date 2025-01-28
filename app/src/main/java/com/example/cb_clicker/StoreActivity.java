@@ -1,6 +1,6 @@
 package com.example.cb_clicker;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,16 +38,15 @@ public class StoreActivity extends AppCompatActivity {
 
         // Przycisk zakupu pierwszej postaci
         buyCharacterButton1.setOnClickListener(v -> {
-            if (MainActivity.clickBank >= 50 && !MainActivity.boughtCharacters[0]) { // Jeśli mamy wystarczająco kliknięć w banku i postać nie została jeszcze kupiona
+            if (MainActivity.clickBank >= 50 && !MainActivity.boughtCharacters[0]) {
                 MainActivity.clickBank -= 50;
                 MainActivity.boughtCharacters[0] = true;
-                MainActivity.imageView.setImageResource(R.drawable.character1); // Zmiana postaci w głównym oknie gry
-                storeCharacterImage1.setImageResource(R.drawable.character1); // Zmiana postaci w sklepie
+                MainActivity.imageView.setImageResource(R.drawable.character1);
+                storeCharacterImage1.setImageResource(R.drawable.character1);
                 Toast.makeText(StoreActivity.this, "Kupiłeś nową postać!", Toast.LENGTH_SHORT).show();
-
-                // Aktualizujemy stan banku w MainActivity
-                ((MainActivity) getParent()).updateClickBankText();
-                updateClickBankText();  // Zaktualizuj bank kliknięć również w sklepie
+                saveGameData();
+                updateClickBankText();
+                finish();  // Powrót do głównej aktywności
             } else if (MainActivity.boughtCharacters[0]) {
                 Toast.makeText(StoreActivity.this, "Ta postać jest już zakupiona!", Toast.LENGTH_SHORT).show();
             } else {
@@ -57,16 +56,16 @@ public class StoreActivity extends AppCompatActivity {
 
         // Przycisk zakupu drugiej postaci
         buyCharacterButton2.setOnClickListener(v -> {
-            if (MainActivity.clickBank >= 100 && !MainActivity.boughtCharacters[1]) { // Jeśli mamy wystarczająco kliknięć w banku i postać nie została jeszcze kupiona
+            if (MainActivity.clickBank >= 100 && !MainActivity.boughtCharacters[1]) {
                 MainActivity.clickBank -= 100;
                 MainActivity.boughtCharacters[1] = true;
-                MainActivity.imageView.setImageResource(R.drawable.character2); // Zmiana postaci w głównym oknie gry
-                storeCharacterImage2.setImageResource(R.drawable.character2); // Zmiana postaci w sklepie
+                MainActivity.imageView.setImageResource(R.drawable.character2);
+                storeCharacterImage2.setImageResource(R.drawable.character2);
                 Toast.makeText(StoreActivity.this, "Kupiłeś nową postać!", Toast.LENGTH_SHORT).show();
+                saveGameData();
+                updateClickBankText();
+                finish();  // Powrót do głównej aktywności
 
-                // Aktualizujemy stan banku w MainActivity
-                ((MainActivity) getParent()).updateClickBankText();
-                updateClickBankText();  // Zaktualizuj bank kliknięć również w sklepie
             } else if (MainActivity.boughtCharacters[1]) {
                 Toast.makeText(StoreActivity.this, "Ta postać jest już zakupiona!", Toast.LENGTH_SHORT).show();
             } else {
@@ -76,18 +75,28 @@ public class StoreActivity extends AppCompatActivity {
 
         // Przycisk zakupu ulepszenia
         buyUpgradeButton.setOnClickListener(v -> {
-            if (MainActivity.clickBank >= 100) { // Jeśli mamy wystarczająco kliknięć w banku
+            if (MainActivity.clickBank >= 100) {
                 MainActivity.clickBank -= 100;
-                MainActivity.increment = 2; // Ulepszamy inkrementację
+                MainActivity.increment = 2;
                 Toast.makeText(StoreActivity.this, "Kupiłeś ulepszenie klikacza!", Toast.LENGTH_SHORT).show();
-
-                // Aktualizujemy stan banku w MainActivity
-                ((MainActivity) getParent()).updateClickBankText();
-                updateClickBankText();  // Zaktualizuj bank kliknięć również w sklepie
+                saveGameData();
+                updateClickBankText();
+                finish();  // Powrót do głównej aktywności
             } else {
                 Toast.makeText(StoreActivity.this, "Za mało kliknięć na ulepszenie!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // Zapisanie stanu gry do SharedPreferences
+    private void saveGameData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("gameData", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt("clickBank", MainActivity.clickBank);
+        editor.putBoolean("boughtCharacter1", MainActivity.boughtCharacters[0]);
+        editor.putBoolean("boughtCharacter2", MainActivity.boughtCharacters[1]);
+        editor.putInt("increment", MainActivity.increment);
+        editor.apply();
     }
 
     // Aktualizacja wyświetlania stanu banku kliknięć w sklepie
