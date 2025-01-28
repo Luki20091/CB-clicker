@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#121212">
+
+    <!-- Wyświetlanie liczby kliknięć -->
+    <TextView
+        android:id="@+id/clickCountText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Licznik: 0"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Wyświetlanie banku kliknięć -->
+    <TextView
+        android:id="@+id/clickBankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bank: 0"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Obrazek aktualnej postaci -->
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:src="@drawable/default_image"/>
+
+    <!-- Przycisk do klikania -->
+    <Button
+        android:id="@+id/clickButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kliknij"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk resetowania kliknięć -->
+    <Button
+        android:id="@+id/resetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk otwierający sklep -->
+    <Button
+        android:id="@+id/openStoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sklep"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk wyboru postaci -->
+    <Button
+        android:id="@+id/selectCharacterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz Postać"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>

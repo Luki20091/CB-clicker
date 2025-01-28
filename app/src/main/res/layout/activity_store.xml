@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#121212">
+
+    <!-- Przycisk powrotu do głównej gry -->
+    <Button
+        android:id="@+id/backToMainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powrót"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Wyświetlanie stanu banku -->
+    <TextView
+        android:id="@+id/clickBankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bank: 0$"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"/>
+
+    <!-- Obrazek postaci do zakupu -->
+    <ImageView
+        android:id="@+id/storeCharacterImage1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/default_image"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"/>
+
+    <!-- Przycisk zakupu postaci -->
+    <Button
+        android:id="@+id/buyCharacterStoreButton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$50 - Kup Postać"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk zakupu ulepszenia -->
+    <Button
+        android:id="@+id/buyUpgradeStoreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$100 - Kup Ulepszenie"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Obrazek drugiej postaci -->
+    <ImageView
+        android:id="@+id/storeCharacterImage2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/default_image"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"/>
+
+    <!-- Przycisk zakupu drugiej postaci -->
+    <Button
+        android:id="@+id/buyCharacterStoreButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$100 - Kup Postać 2"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

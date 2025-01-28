@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#121212">
+
+    <!-- Przycisk powrotu do głównej gry -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Powrót"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Obrazek wybranej postaci -->
+    <ImageView
+        android:id="@+id/selectedCharacterImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"/>
+
+    <!-- Przycisk wyboru pierwszej postaci -->
+    <Button
+        android:id="@+id/selectCharacter1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz Postać 1"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk wyboru drugiej postaci -->
+    <Button
+        android:id="@+id/selectCharacter2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz Postać 2"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+
+    <!-- Przycisk wyboru domyślnej postaci -->
+    <Button
+        android:id="@+id/selectCharacter3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Wybierz Domyślną Postać"
+        android:backgroundTint="#03DAC5"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
